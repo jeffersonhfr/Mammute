@@ -1,0 +1,26 @@
+.navbar-nav > li > a {
+    padding: 15px 7px;
+}  
+
+.tel{font-size: 32px; margin: 0 0 20px 0; color: #fff;}
+
+.contato {
+    margin: 0 0 0px 0;
+    letter-spacing: 0.5px;
+	color: #fff;
+}
+
+
+@media (max-width: 767px) {
+.mob1 {display:block}
+}
+
+@media (min-width: 768px) {
+.mob1 {display: none}
+}
+
+@media (max-width: 767px) {.bottom-icons { margin: 13px 0px 0px 22px !important;}}
+@media (min-width: 768px) {.bottom-icons { margin: 0px !important;}}
+
+@media (max-width: 767px) {.social-text {margin: 20px 0px 0px 0px;font-size: 13px;}}
+@media (min-width: 768px) {.social-text {margin-right: 18px}}

@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+
+<head>
+	<!-- Basic Page Needs
+    ================================================== -->
+	<meta charset="utf-8">
+	<title>Mammute</title>
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+
+	<meta name="author" content="">
+	<!-- Mobile Specific Metas
+    ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="x-ua-compatible" content="IE=9">
+	<!-- Font Awesome -->
+	<link href="stylesheets/font-awesome.css" rel="stylesheet">
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+	<!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+	<!--headerIncludes-->
+	<!-- CSS
+    ================================================== -->
+	<link rel="stylesheet" href="stylesheets/menu.css">
+	<link rel="stylesheet" href="stylesheets/flat-ui-slider.css">
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/landings.css">
+	<link rel="stylesheet" href="stylesheets/main.css">
+	<link rel="stylesheet" href="stylesheets/landings_layouts.css">
+	<link rel="stylesheet" href="stylesheets/box.css">
+	<link rel="stylesheet" href="stylesheets/pixicon.css">
+	<link href="assets/css/animations.min.css" rel="stylesheet" type="text/css" media="all" />
+
+	<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	<!-- Favicons
+    ================================================== -->
+	<!--<link rel="shortcut icon" href="images/main/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">-->
+	<link rel="stylesheet" href="stylesheets/custom/index.css">
+	<style>
+		/* Modal */
+
+		#ouibounce-modal {
+			z-index: 9999;
+			background-color: rgba(0, 0, 0, 0.6);
+			font-family: 'Open Sans', sans-serif;
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%
+		}
+
+		#ouibounce-modal .underlay {
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, .5);
+			cursor: pointer;
+			-webkit-animation: fadein .5s;
+			animation: fadein .5s
+		}
+
+		#ouibounce-modal .modal {
+			width: 490px;
+			height: 495px;
+			background-color: #f0f1f2;
+			z-index: 1;
+			position: absolute;
+			margin: auto;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			border-radius: 4px;
+			-webkit-animation: popin .3s;
+			animation: popin .3s
+		}
+
+		#ouibounce-modal .modal-title {
+			font-size: 18px;
+			background-color: #252525;
+			color: #fff;
+			padding: 10px;
+			margin: 0;
+			border-radius: 4px 4px 0 0;
+			text-align: center
+		}
+
+		#ouibounce-modal h3 {
+			color: #fff;
+			font-size: 1em;
+			margin: .2em;
+			text-transform: uppercase;
+			font-weight: 500
+		}
+
+		#ouibounce-modal .modal-body {
+			#ouibounce-modal .modal-body {
+				padding: 0px 15px 0px 15px;
+				font-size: .9em;
+			}
+			font-size:.9em
+		}
+
+		#ouibounce-modal p {
+			color: #344a5f
+		}
+
+		#ouibounce-modal form {
+			text-align: center;
+			margin-top: 35px
+		}
+
+		#ouibounce-modal form input[type=text] {
+			padding: 12px;
+			font-size: 1.2em;
+			width: 300px;
+			border-radius: 4px;
+			border: 1px solid #ccc;
+			-webkit-font-smoothing: antialiased
+		}
+
+		#ouibounce-modal form input[type=submit] {
+			text-transform: uppercase;
+			font-weight: 700;
+			padding: 12px;
+			font-size: 1.1em;
+			border-radius: 4px;
+			color: #fff;
+			background-color: #4ab471;
+			border: none;
+			cursor: pointer;
+			-webkit-font-smoothing: antialiased
+		}
+
+		#ouibounce-modal form p {
+			text-align: left;
+			margin-left: 35px;
+			opacity: .8;
+			margin-top: 1px;
+			padding-top: 1px;
+			font-size: .9em
+		}
+
+		#ouibounce-modal .modal-footer {
+			position: absolute;
+			bottom: 0px;
+			text-align: center;
+			width: 100%
+		}
+
+		#ouibounce-modal .modal-footer p {
+			text-transform: capitalize;
+			cursor: pointer;
+			display: inline;
+			border-bottom: 1px solid #344a5f
+		}
+
+		@-webkit-keyframes fadein {
+			0% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+
+		@-ms-keyframes fadein {
+			0% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+
+		@keyframes fadein {
+			0% {
+				opacity: 0
+			}
+			100% {
+				opacity: 1
+			}
+		}
+
+		@-webkit-keyframes popin {
+			0% {
+				-webkit-transform: scale(0);
+				transform: scale(0);
+				opacity: 0
+			}
+			85% {
+				-webkit-transform: scale(1.05);
+				transform: scale(1.05);
+				opacity: 1
+			}
+			100% {
+				-webkit-transform: scale(1);
+				transform: scale(1);
+				opacity: 1
+			}
+		}
+
+		@-ms-keyframes popin {
+			0% {
+				-ms-transform: scale(0);
+				transform: scale(0);
+				opacity: 0
+			}
+			85% {
+				-ms-transform: scale(1.05);
+				transform: scale(1.05);
+				opacity: 1
+			}
+			100% {
+				-ms-transform: scale(1);
+				transform: scale(1);
+				opacity: 1
+			}
+		}
+
+		@keyframes popin {
+			0% {
+				-webkit-transform: scale(0);
+				-ms-transform: scale(0);
+				transform: scale(0);
+				opacity: 0
+			}
+			85% {
+				-webkit-transform: scale(1.05);
+				-ms-transform: scale(1.05);
+				transform: scale(1.05);
+				opacity: 1
+			}
+			100% {
+				-webkit-transform: scale(1);
+				-ms-transform: scale(1);
+				transform: scale(1);
+				opacity: 1
+			}
+		}
+
+		#ouibounce-modal .modal-body {
+			padding: 0px 15px;
+			font-size: 0.9em;
+			text-align: center;
+		}
+
+		button.btn.btn-default:hover {
+			padding: 5px 21px;
+			border-radius: 4px;
+			background: #365d26;
+			color: white;
+			font-size: 14px;
+			font-weight: normal;
+			border: 5px solid #365d26 !important;
+			text-shadow: 0 0px #fff;
+		}
+
+		button.btn.btn-default {
+			padding: 5px 21px;
+			border-radius: 4px;
+			background: #456c35;
+			color: white;
+			font-size: 14px;
+			font-weight: normal;
+			border: 5px solid #456c35 !important;
+			text-shadow: 0 0px #fff;
+		}
+
+		@media only screen and (max-width: 660px) {
+			#section_con .normal_title{font-size: 35px; line-height: 40px !important;}
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id="page" class="page">
+
+		<div class="pixfort_normal_1" id="section_header_2_dark">
+			<div class="header_nav_1 dark pix_builder_bg" style="background-image: none; background-color: rgb(51, 51, 51); padding-top: 0px; padding-bottom: 0px; box-shadow: none; border-color: rgb(255, 255, 255); background-size: auto; background-attachment: scroll; background-repeat: repeat; outline-offset: -3px;">
+				<div class="container1">
+					<div class="sixteen1 columns firas2">
+						<nav role="navigation" class="navbar navbar-white navbar-embossed navbar-lg pix_nav_1">
+							<div class="containerss">
+								<div class="navbar-header">
+									<button data-target="#navbar-collapse-02" data-toggle="collapse" class="navbar-toggle pix_text" type="button">
+                                    <span class="sr-only ">Toggle navigation</span>
+                                </button>
+									<img src="images/main/logo-dark.png" class="pix_nav_logo" alt="">
+								</div>
+								<div id="navbar-collapse-02" class="collapse navbar-collapse">
+									<ul class="nav navbar-nav navbar-right">
+										<li class="active propClone"><a href="#section_exp" style="color: rgb(204, 204, 204); font-weight: 700; text-transform: none;">Experiência</a></li>
+										<li class="propClone"><a href="#section_lid">Liderança</a></li>
+										<li class="propClone"><a href="#section_equ">Equipe</a></li>
+										<li class="propClone"><a href="#section_org">Organizacional</a></li>
+										<li class="propClone"><a href="#section_mov">MOVA</a></li>
+										<li class="propClone"><a href="#section_cli">Clientes</a></li>
+										<li class="propClone"><a href="#section_con">Contato</a></li>
+
+
+
+									</ul>
+								</div>
+								<!-- /.navbar-collapse -->
+							</div>
+							<!-- /.container -->
+						</nav>
+					</div>
+				</div>
+				<!-- container -->
+			</div>
+		</div>
+
+
+		<!-- Header -->
+		<div class="pixfort_normal_1 creative_video_header" id="section_pix_4">
+			<div class="has-video creative_header">
+				<div class="mask"></div>
+				<div class="pix_video_div section_video" style="background-image: url(images/video/video_bg.jpg); background-size: cover;">
+					<video autoplay="" class="bgvid" loop="">
+                        <source src="images/video/video_bg.webm" type="video/webm">
+                        <source src="images/video/video_bg.mp4" type="video/mp4">
+                    </video>
+				</div>
+				<div class="section_wrapper clearfix">
+					<div class="container">
+						<div class="sixteen columns context_style">
+							<div class="title_style">
+								Desenvolver l&iacute;deres, integrar pessoas e construir equipes de alta performance
+							</div>
+							<div class="subtitle_style">
+								<span class="creative_h_text">
+                                    <span class="editContent" style="">ESSA &Eacute; A NOSSA MISS&Atilde;O</span>
+								</span>
+							</div>
+
+							<div class="note_st">
+								<span class="creative_note"><span class="editContent"></span></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Header -->
+
+
+		<!-- Experiencia -->
+	</div>
+	<div class="exp pix_builder_bg" id="section_exp" style="outline-offset: -3px;">
+		<div class="big_padding highlight-section">
+			<div class="highlight-right pix_builder_bg"></div>
+			<div class="container">
+				<div class="sixteen columns">
+					<div class="eight columns alpha">
+						<br><img src="images/main/ft-experiencia-mob.jpg" class="mob1"><br><br>
+					</div>
+					<div class="eight columns omega ">
+						<div class="highlight_inner">
+							<p class="big_title editContent">
+								<font style="vertical-align: inherit;">Experi&ecirc;ncia</font>
+							</p>
+							
+							<p class="normal_text light_gray editContent" style="text-align: justify;">
+								<font style="vertical-align: inherit;">Desenvolver líderes, integrar pessoas e construir equipes de alta performance é a nossa missão. Dessa forma queremos contribuir com pessoas e organizações mais saudáveis. A <strong>transformação pessoal</strong> é o nosso desejo e o motivo pelo qual trabalhamos. A educação experiencial e a análise do comportamento aplicada são recursos, que juntas <strong>facilitam a aprendizagem e a mudança de comportamento.</strong> Os exercícios experienciais levam a reflexão e possibilitam a percepção de comportamentos que necessitam ser mudados, melhorando os relacionamentos do dia a dia. Essa reflexão facilita o <strong>processo de mudança pessoal e consequentemente a melhoria do ambiente organizacional.</strong> Trabalhamos para que toda a informação transforme-se em conhecimento, o conhecimento em aprendizado e o aprendizado em experiência compartilhada, construindo um ambiente de satisfação e realização.</font>
+							</p>
+							<a href="experiencia.html" class="pix_button pix_button_line brown bold_text editContent">Saiba Mais</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Experiencia -->
+
+
+	<!-- Liderança -->
+	<div class="pix_builder_bg lid" id="section_lid" style="outline-offset: -3px;">
+		<div class="big_padding highlight-section">
+			<div class="highlight-left pix_builder_bg"></div>
+			<div class="container ">
+				<div class="sixteen columns">
+					<div class="mob1">
+						<img src="images/main/ft-lideranca-mob.jpg" class="mob1">
+						<br><br>
+					</div>
+					<div class="eight columns alpha">
+						<div class="highlight_inner">
+							<p class="big_title editContent">
+								<font style="vertical-align: inherit;">Lideran&ccedil;a</font>
+							</p>
+							<p class="bold_text margin_bottom normal_text orange editContent">
+								<font style="vertical-align: inherit;">Grandes líderes atraem pessoas talentosas para trabalhar ao seu lado ...</font>
+							</p>
+							<p class="normal_text light_gray editContent" style="text-align: justify;">
+								<font style="vertical-align: inherit;">...e dessa forma investem tempo na construção de <strong>uma cultura de inovação e paixão por excelência.</strong> A formação de uma liderança coesa, firme e sólida, necessita da vivência de conceitos capazes de gerar maior consciência a respeito de si mesmo e do impacto dessas ações sobre as pessoas e a organização. Líderes devem inspirar pessoas, sinalizar o propósito, alinhar os processos e formar novos líderes.</font>
+							</p>
+							<a href="lideranca.html" class="pix_button pix_button_line brown bold_text editContent">Saiba Mais</a>
+						</div>
+					</div>
+					<div class="eight columns omega ">
+						<br>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Liderança -->
+
+
+	<!-- Equipe -->
+	<div class="team pix_builder_bg" id="section_equ" style="outline-offset: -3px;" name="equipe">
+		<div class="big_padding highlight-section">
+			<div class="highlight-right pix_builder_bg"></div>
+			<div class="container">
+				<div class="sixteen columns">
+					<div class="eight columns alpha">
+						<br><img src="images/main/ft-team-mob.jpg" class="mob1"><br><br>
+					</div>
+
+					<div class="eight columns omega ">
+						<div class="highlight_inner">
+							<p class="big_title editContent">
+								<font style="vertical-align: inherit;">Equipe</font>
+							</p>
+							<p class="bold_text margin_bottom normal_text orange editContent">
+								<font style="vertical-align: inherit;">Aceitação e superação das diferenças em favor do bem comum.</font>
+							</p>
+							<p class="normal_text light_gray editContent" style="text-align: justify;">
+								<font style="vertical-align: inherit;">Através de atividades lúdicas e inovadoras, queremos demonstrar exemplos que façam a relação com os problemas do ambiente de trabalho, instigando o espírito de equipe, <strong>desenvolver a integração e aperfeiçoar comportamentos.</strong> Dessa forma, melhoramos o desempenho das pessoas e equipes, refletindo em maior produtividade e realização. As organizações podem se tornar comunidades, onde pessoas encontrem sentido naquilo que estão construindo, comprometidas entre si e engajadas numa missão, num propósito. Nosso papel é proporcionar <strong>novas experiências</strong>, construir <strong>novos ambientes</strong> e transmitir <strong>novos valores</strong>, que promovam o <strong>comprometimento e o engajamento.</strong></font>
+							</p>
+							<a href="teambuilding.html" class="pix_button pix_button_line brown bold_text editContent">Saiba Mais</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Equipe -->
+
+
+	<!-- Organizacional -->
+	<div class="pix_builder_bg gov" id="section_org" style="outline-offset: -3px;">
+		<div class="big_padding highlight-section">
+			<div class="highlight-left pix_builder_bg"></div>
+			<div class="container ">
+				<div class="sixteen columns ">
+					<div class="mob1">
+						<img src="images/main/ft-governanca-mob.jpg" class="mob1">
+						<br><br>
+					</div>
+					<div class="eight columns alpha">
+						<div class="highlight_inner">
+							<p class="big_title editContent">
+								<font style="vertical-align: inherit;">Governan&ccedil;a e Cultura</font>
+							</p>
+							<p class="bold_text margin_bottom normal_text orange editContent">
+								<font style="vertical-align: inherit;">Alinhamento de valores pessoais e organizacionais.</font>
+							</p>
+							<p class="normal_text light_gray editContent" style="text-align: justify;">
+								<font style="vertical-align: inherit;">Aqui moram os comportamentos implícitos que constroem a cultura, o jeito de ser de cada organização. Na verdade, a cultura organizacional representa as normas informais e não escritas, <strong>conjunto de valores, crenças e rituais adotados pelos membros de uma organização.</strong> Isso orienta o comportamento de toda organização e direciona suas ações para o alcance dos objetivos estratégicos. A cultura contribui diretamente nos resultados dos negócios, por essa razão deve ser <strong>integrada aos valores, sentimentos e pensamentos de todos os seus colaboradores.</strong></font>
+							</p>
+							<a href="organizacional.html" class="pix_button pix_button_line brown bold_text editContent">Saiba Mais</a>
+						</div>
+					</div>
+					<div class="eight columns omega ">
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Organizacional -->
+
+
+	<!-- MOVA -->
+	<div class="mov pix_builder_bg" id="section_mov">
+		<div class="big_padding highlight-section">
+			<div class="highlight-right pix_builder_bg"></div>
+			<div class="container">
+				<div class="sixteen columns">
+					<div class="eight columns alpha">
+						<br><img src="images/main/ft-mova-mob.jpg" class="mob1"><br><br>
+					</div>
+					<div class="eight columns omega ">
+						<div class="highlight_inner">
+							<p class="big_title editContent">
+								<font style="vertical-align: inherit;">MOVA</font>
+							</p>
+							<p class="bold_text margin_bottom normal_text orange editContent">
+								<font style="vertical-align: inherit;">Programa de desenvolvimento de Jovens.</font>
+							</p>
+							<p class="normal_text light_gray editContent" style="text-align: justify;">
+								<font style="vertical-align: inherit;" >É um programa que tem por objetivo ajudar e orientar jovens na tomada de decisão, que seja coerente com suas habilidades, competências e aspirações do jeito de viver. Ao mesmo demonstrar as <strong>oportunidades e desafios atuais de um mundo em plena transformação e disruptivo.</strong> O conteúdo traz clareza, provoca iniciativas de mudança, <strong>transformação pessoal, incentivando o aprendizado de novas formas de pensar, sentir e fazer.</strong> O participante será exposto a um ambiente de desenvolvimento de sua liderança, empreendedorismo e trabalho em equipe. Num ambiente desafiador e encorajador, o participante terá sessões de Assessments, Workshops, Hands on, Palestras, Exercícios Experienciais, Autoconhecimento, Atividades de Inovação e Criatividade.</font>
+							</p>
+							<a href="mova.html" class="pix_button pix_button_line brown bold_text editContent">Saiba Mais</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- MOVA -->
+
+
+	<!-- Clientes -->
+	<div class="" id="section_cli">
+		<div class="big_padding white pix_builder_bg" style="outline-offset: -3px;">
+			<div class="container">
+				<div class="sixteen columns center_text">
+					<p class="normal_title editContent" style="color:#333333">
+						<strong>Clientes</strong>
+					</p>
+					<span class="pix_text normal_gray">
+                        <span class="normal_text editContent">
+                            Pessoas que compartilham sonhos: o desenvolvimento do pr&oacute;ximo, a sustentabilidade organizacional.
+                        </span>
+					</span>
+				</div>
+				<div class="pix_inline_block center_text" style="margin-top: 30px;">
+					<div class="sixteen columns ">
+						<div class="eight columns alpha">
+							<img src="images/parceiros1.png" class="" alt="">
+						</div>
+						<div class="eight columns alpha">
+							<img src="images/parceiros2.png" class="" alt="">
+						</div>
+
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Clientes -->
+
+
+	<!-- Contato -->
+	<div class="big_padding pix_builder_bg dark form_1_bg" id="section_con" style="outline-offset: -3px;">
+		<div class="container">
+			<div class="sixteen columns center_text">
+				<p class="normal_title editContent" style="line-height: 60px;"><strong>Deixe-nos saber como contribuir com você, sua equipe e organização.</strong></p>
+
+				<div class="pix_text normal_gray" style="margin-top: 50px">
+
+					<p class="tel"><img src="images/whatsapp.png" width="32px" style="color: #fff"><a href="https://wa.me/5511995587813?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20..." style="margin-left: 10px; text-decoration: none; color:#fff">(11) 9.9558.7813</a></p>
+					<p class="tel"><img src="images/phone.png" width="32px" style="color: #fff"><span style="margin-left: 10px">(11) 3661-8301</span></p>
+					<p class="contato">atendimento@mammute.com.br</p>
+					<p class="contato">Rua Antonio Pires, 810, sala 73B. Vila Palmeiras &ndash; CEP: 02730-000</p>
+
+				</div>
+			</div>
+
+			<div class="sixteen columns padding_top_30_1">
+
+				<div class="eight columns alpha" style="text-align: center">
+					<img src="images/profile.png" style="margin-top: 10px;">
+				</div>
+				<div class="eight columns omega">
+					<div class="">
+						<form name="sentMessage" id="contactForm" class="pix_form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Nome *" id="name" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control pix_text" placeholder="Email *" id="email" required="">
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control pix_text" placeholder="Telefone *" id="phone" required="" pattern="[0-9]+">
+                                </div>
+                            </div><br>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control pix_text" placeholder="Mensagem *" id="message" required=""></textarea>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl submit_btn orange_bg pix_text">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+						
+						
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Contato -->
+
+	
+	<!-- Footer -->
+	<div class="pix_builder_bg dark" id="section_footer_5_dark" style="outline-offset: -3px;">
+		<div class="footer3">
+			<div class="container ">
+				<div class="sixteen columns ">
+					<div class="eight columns alpha mobile_center">
+						<div class="pix_div_fit">
+							<img src="images/main/logo.png" class="pix_footer_logo pix_img_fit" alt="">
+						</div>
+					</div>
+
+					<div class="eight columns alpha omega right_text margin_vertical mobile_center">
+						<p class="social-text">Redes Sociais</p>
+						<ul class="bottom-icons center_text big_title">
+							<li><a class="pi pixicon-linkedin4 normal_gray" href="https://www.linkedin.com/company/mamute-treinamento-e-desenvolvimento/" target="_blank"></a> </li>
+							<li><a class="pi pixicon-facebook6 normal_gray" href="https://www.facebook.com/MamuteTreinamentoDesenvolvimento/" target="_blank"></a> </li>
+							<li><a class="pi pixicon-youtube normal_gray" href="https://www.youtube.com/channel/UCrXWY_ZmHUgFomYueYfDvKw" target="_blank"></a> </li>
+							<li><a class="pi pixicon-instagram2 normal_gray" href="https://www.instagram.com/marcoaureliomamute/" target="_blank"></a> </li>
+						</ul>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+
+	<div id="ouibounce-modal">
+		<div class="modal">
+			<div class="modal-body"><img class=" inline_edited" style="width: 454px; height: 360px; max-width: 100%;" src="images/modal.jpg" width="100%" />
+				<p style="padding: 0px !important; margin: 0px !important; line-height: 16px;"><br /><span style="font-size: 16px; line-height: 18px !important;"> <strong>Deixe-nos saber como contribuir com voc&ecirc;, sua equipe e organiza&ccedil;&atilde;o. Vamos conversar?</strong></span></p>
+				<p style="padding: 0px !important; margin: -5px 0px !important; line-height: 16px;"><br /><span style="font-size: 14px; line-height: 14px !important;"> Entre em contato pelo telefone (11) 3661-8301 ou Whatsapp (11) 9.9558.7813 para combinarmos o melhor dia.</span></p>
+				<p> </p>
+				<p> </p>
+			</div>
+			<!--<div class="modal-footer"><a href="#" rel="noopener"><button class="btn btn-default" type="button">Enviar uma mensagem</button></a></div>-->
+		</div>
+	</div>
+
+
+	<!-- JavaScript
+================================================== -->
+	<script src="js-files/jquery-1.8.3.min.js" type="text/javascript"></script>
+	<script src="js-files/jquery.easing.1.3.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js-files/jquery.common.min.js"></script>
+	<script src="js-files/ticker.js" type="text/javascript"></script>
+	<script src="js-files/custom1.js" type="text/javascript"></script>
+	<script src="assets/js/smoothscroll.min.js" type="text/javascript"></script>
+	<script src="assets/js/appear.min.js" type="text/javascript"></script>
+	<script src="js-files/jquery.ui.touch-punch.min.js"></script>
+	<script src="js-files/bootstrap.min.js"></script>
+	<script src="js-files/bootstrap-switch.js"></script>
+	<script src="js-files/custom3.js" type="text/javascript"></script>
+
+
+	<script src="assets/js/appear.min.js" type="text/javascript"></script>
+	<script src="assets/js/animations.js" type="text/javascript"></script>
+
+	<script>
+		! function(e, n) {
+			"function" == typeof define && define.amd ? define(n) : "object" == typeof exports ? module.exports = n(require, exports, module) : e.ouibounce = n()
+		}(this, function(e, n, o) {
+			return function(e, n) {
+				"use strict";
+
+				function o(e, n) {
+					return "undefined" == typeof e ? n : e
+				}
+
+				function i(e) {
+					var n = 24 * e * 60 * 60 * 1e3,
+						o = new Date;
+					return o.setTime(o.getTime() + n), "; expires=" + o.toUTCString()
+				}
+
+				function t() {
+					s() || (L.addEventListener("mouseleave", u), L.addEventListener("mouseenter", r), L.addEventListener("keydown", c))
+				}
+
+				function u(e) {
+					e.clientY > k || (D = setTimeout(m, y))
+				}
+
+				function r() {
+					D && (clearTimeout(D), D = null)
+				}
+
+				function c(e) {
+					g || e.metaKey && 76 === e.keyCode && (g = !0, D = setTimeout(m, y))
+				}
+
+				function d(e, n) {
+					return a()[e] === n
+				}
+
+				function a() {
+					for (var e = document.cookie.split("; "), n = {}, o = e.length - 1; o >= 0; o--) {
+						var i = e[o].split("=");
+						n[i[0]] = i[1]
+					}
+					return n
+				}
+
+				function s() {
+					return d(T, "true") && !v
+				}
+
+				function m() {
+					s() || (e && (e.style.display = "block"), E(), f())
+				}
+
+				function f(e) {
+					var n = e || {};
+					"undefined" != typeof n.cookieExpire && (b = i(n.cookieExpire)), n.sitewide === !0 && (w = ";path=/"), "undefined" != typeof n.cookieDomain && (x = ";domain=" + n.cookieDomain), "undefined" != typeof n.cookieName && (T = n.cookieName), document.cookie = T + "=true" + b + x + w, L.removeEventListener("mouseleave", u), L.removeEventListener("mouseenter", r), L.removeEventListener("keydown", c)
+				}
+				var l = n || {},
+					v = l.aggressive || !1,
+					k = o(l.sensitivity, 20),
+					p = o(l.timer, 1e3),
+					y = o(l.delay, 0),
+					E = l.callback || function() {},
+					b = i(l.cookieExpire) || "",
+					x = l.cookieDomain ? ";domain=" + l.cookieDomain : "",
+					T = l.cookieName ? l.cookieName : "viewedOuibounceModal",
+					w = l.sitewide === !0 ? ";path=/" : "",
+					D = null,
+					L = document.documentElement;
+				setTimeout(t, p);
+				var g = !1;
+				return {
+					fire: m,
+					disable: f,
+					isDisabled: s
+				}
+			}
+		});
+
+
+		// if you want to use the 'fire' or 'disable' fn,
+		// you need to save OuiBounce to an object
+		var _ouibounce = ouibounce(document.getElementById('ouibounce-modal'), {
+			aggressive: true,
+			timer: 0,
+			callback: function() {
+				console.log('ouibounce fired!');
+			}
+		});
+
+		$('body').on('click', function() {
+			$('#ouibounce-modal').hide();
+		});
+
+		$('#ouibounce-modal .modal-footer').on('click', function() {
+			$('#ouibounce-modal').hide();
+		});
+
+		$('#ouibounce-modal .modal').on('click', function(e) {
+			e.stopPropagation();
+		});
+	</script>
+	
+	
+	<!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/cbpAnimatedHeader.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="js/jqBootstrapValidation.js"></script>
+    <script src="js/contact_me.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="js/agency.js"></script>
+	
+	
+</body>
+
+</html>
